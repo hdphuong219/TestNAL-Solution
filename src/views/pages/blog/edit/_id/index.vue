@@ -58,7 +58,9 @@
           :disabled="isLoading"
           >Edit</b-button
         >
-        <b-button variant="secondary" class="mx-2">Cancel</b-button>
+        <b-button variant="secondary" class="mx-2" v-on:click="handleCancel()"
+          >Cancel</b-button
+        >
       </div>
     </b-container>
   </div>
@@ -139,6 +141,10 @@ export default {
         this.image = e.target.files[0];
         this.url = URL.createObjectURL(this.image);
       }
+    },
+
+    handleCancel() {
+      this.$router.push("/blog/list");
     },
   },
 };
